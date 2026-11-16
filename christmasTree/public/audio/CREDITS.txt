@@ -1,0 +1,15 @@
+"Oh, Christmas Tree" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+
+Track: https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1100366
+Original recording: https://incompetech.com/music/royalty-free/mp3-royaltyfree/Oh%20Xmas.mp3
+ISRC: USUAN1100366
+Downloaded: 2026-11-15
+SHA-256: 9d0fd6cf5ddfcf3a48b4437707687b5738910be3b3ecc51536c4a50a48553005
+
+The original recording is retained unchanged under its original filename.
+The playback copy, oh-christmas-tree-96k-v1.mp3, is re-encoded at 96 kbps for faster
+mobile loading; the music, full duration and pitch are unchanged.
+The player lowers playback volume, fades play/pause, and repeats the recording.
+Attribution and license links are displayed in the site footer.

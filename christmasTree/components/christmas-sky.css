@@ -1,0 +1,73 @@
+.app-shell { isolation: isolate; background: #dce6e3; }
+.paper-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.sky-wash { position: absolute; inset: 0; transition: opacity 1.8s ease; }
+.sky-day { opacity: 1; }
+.sky-sunset { opacity: var(--wash-sunset); }
+.sky-dusk { opacity: var(--wash-dusk); }
+.sky-night { opacity: var(--sky-night); }
+.paper-sun, .paper-moon, .paper-cloud { position: absolute; transition: opacity 1.8s ease; }
+.paper-sun { width: 112px; left: max(5%, calc(50% - 580px)); top: 170px; opacity: calc(var(--sky-day) * .88 + var(--sky-sunset) * .75); }
+.paper-moon { width: 95px; right: max(6%, calc(50% - 570px)); top: 160px; opacity: var(--sky-stars); transform: rotate(-12deg); }
+.paper-cloud { width: 260px; color: #fbf5e7; opacity: calc(var(--sky-day) * .52 + var(--sky-sunset) * .32 + var(--sky-dusk) * .1); }
+.cloud-left { left: -55px; top: 35%; transform: rotate(-6deg); }
+.cloud-right { right: -65px; top: 53%; transform: rotate(7deg) scale(.85); }
+.paper-stars { position: absolute; inset: 100px 0 15%; opacity: var(--sky-stars); transition: opacity 1.8s ease; }
+.paper-stars svg { position: absolute; height: auto; fill: #f1dfb5; animation: paper-starlight 7s var(--star-delay) ease-in-out infinite alternate; }
+@keyframes paper-starlight { from { opacity: .4; } to { opacity: .85; } }
+.app-shell .site-header, .app-shell .intro, .app-shell .tree-name { color: var(--sky-ink); }
+.app-shell .site-header, .app-shell .site-footer { border-color: var(--sky-line); }
+.app-shell .brand small, .app-shell .intro>p:last-child, .app-shell .scene-footnote,
+.app-shell .tree-progress p, .app-shell .tree-progress p>span,
+.app-shell .invitation-panel>.privacy-note, .app-shell .site-footer { color: var(--sky-muted); }
+.app-shell .intro-title span, .app-shell .tree-progress strong { color: var(--sky-emphasis); }
+.app-shell .intro .eyebrow, .app-shell .little-star, .app-shell .tree-name button,
+.app-shell .winter-caption, .app-shell .handwritten, .app-shell .footer-star { color: var(--sky-accent); }
+.app-shell .intro .eyebrow>span, .app-shell .nav-divider { background: var(--sky-line); }
+.app-shell .title-star path { fill: var(--sky-accent); }
+.app-shell .site-header .text-button:hover { color: var(--sky-emphasis); }
+.app-shell .scene-action { color: var(--sky-ink); }
+.app-shell .scene-action span, .app-shell .site-footer button { border-color: var(--sky-line); }
+.app-shell .progress-dots i { background: var(--sky-line); }
+.app-shell .progress-dots i.filled { background: var(--sky-accent); }
+.app-shell .secondary-actions { background: #f5efdfeb; color: #385246; border-color: #cbbda4; }
+.app-shell .music-credit a { text-decoration-color: var(--sky-line); }
+.app-shell .music-credit a:hover { color: var(--sky-ink); }
+.tree-paper-outline { opacity: calc(var(--sky-dark) * .7); }
+.atmosphere-controls { position: relative; z-index: 4; display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin: 17px 16px 4px; }
+.atmosphere-controls .music-box { margin: 0; }
+.atmosphere-controls .music-toggle, .sky-clock>summary { min-height: 40px; color: #53614e; background: #f7f0e1ed; border: 1px solid #cdbfa5; }
+.atmosphere-controls .music-toggle:hover, .sky-clock>summary:hover { background: #fff8e8; }
+.sky-clock { position: relative; font-size: 10px; letter-spacing: .6px; color: #52614f; }
+.sky-clock>summary { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 7px 13px; border-radius: 24px; cursor: pointer; list-style: none; touch-action: manipulation; }
+.sky-clock>summary::-webkit-details-marker { display: none; }
+.sky-clock>summary:focus-visible { outline: 2px solid var(--sky-accent); outline-offset: 4px; }
+.sky-clock[open]>summary>svg:last-child { transform: rotate(180deg); }
+.sky-clock-menu { position: absolute; top: calc(100% + 9px); right: 0; width: 250px; padding: 18px; border: 1px solid #d2c5ad; background: #faf5e8; border-radius: 9px; box-shadow: 3px 5px 0 #e9dfcd, 0 12px 32px #24324624; }
+.sky-clock-menu>p { font: 15px var(--serif); color: #3e5647; margin-bottom: 12px; }
+.sky-clock-menu>div { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.sky-clock-menu button { display: flex; align-items: center; gap: 6px; min-height: 40px; padding: 7px 9px; border: 1px solid #ddd1ba; border-radius: 5px; font-size: 11px; letter-spacing: 0; }
+.sky-clock-menu button:first-child { grid-column: 1 / -1; }
+.sky-clock-menu button[aria-pressed=true] { background: #e2e7d8; border-color: #a7b294; color: #2f513f; }
+.sky-clock-menu button:hover { background: #eee6d5; }
+.sky-clock-menu small { display: block; color: #786e5b; font-size: 10px; line-height: 1.8; margin-top: 12px; letter-spacing: 0; }
+@media (max-width: 760px) {
+  .paper-sun { width: 67px; left: 2%; top: 106px; }
+  .paper-moon { width: 61px; right: 1%; top: 106px; }
+  .paper-cloud { width: 170px; }
+  .cloud-left { top: 29%; left: -65px; }
+  .cloud-right { top: 60%; right: -75px; }
+  .paper-stars { inset: 95px 0 10%; }
+  .paper-stars svg:nth-child(n+25) { display: none; }
+  .atmosphere-controls { gap: 7px; margin: 14px 10px 0; }
+  .atmosphere-controls .music-toggle, .sky-clock>summary { min-height: 44px; padding-inline: 11px; font-size: 9px; letter-spacing: .2px; gap: 6px; }
+  .sky-clock-menu { right: -2px; width: 250px; }
+}
+@media (max-width: 355px) {
+  .atmosphere-controls { gap: 6px; }
+  .atmosphere-controls .music-toggle, .sky-clock>summary { padding-inline: 8px; gap: 4px; }
+  .atmosphere-controls .music-bars { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sky-wash, .paper-sun, .paper-moon, .paper-cloud, .paper-stars { transition: none; }
+  .paper-stars svg { animation: none; opacity: .7; }
+}

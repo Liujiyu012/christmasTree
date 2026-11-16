@@ -1,0 +1,7 @@
+.card-image.mobile-image>img { width:100%; max-width:100%; }
+.card-image>img { -webkit-touch-callout:default; touch-action:auto; }
+.card-save-guide { font-size:11px; color:#88785e; line-height:1.9; text-align:center; margin:0 auto 12px; max-width:340px; }
+.card-image.save-help-open>img { width:100%; max-width:100%; outline:2px solid #b79b6b; outline-offset:4px; }
+.card-image .card-file-download { display:flex; width:max-content; max-width:100%; margin:12px auto 0; color:#9d8d70; font-size:10px; }
+.card-image .button { min-height:46px; }
+.card-image .button span { min-width:0; white-space:normal; }

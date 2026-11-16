@@ -1,0 +1,24 @@
+.mailbox-summary { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:24px 0 5px; color:#9a886c; font-size:11px; }
+.mailbox-summary>span:last-child { display:flex; align-items:center; gap:7px; }
+.unread-dot { display:inline-block; flex:none; width:7px; height:7px; border-radius:50%; background:#a1434c; }
+.mailbox-summary+.letters-list { margin-top:0; }
+.letter-row.is-unread { background:#f2eadb66; }
+.letter-row.is-unread strong { color:#763c45; }
+.envelope-icon { position:relative; flex:none; }
+.envelope-icon .unread-dot { position:absolute; top:1px; right:-4px; box-shadow:0 0 0 3px #faf6ed; }
+.letter-save { margin-top:30px; min-height:48px; }
+.letter-read-error { padding:12px 0; font-size:12px; color:#95474e; line-height:1.8; }
+.letter-read-error .text-button { margin-top:7px; text-decoration:underline; }
+.letter-card-caption { color:#948568; font-size:12px; text-align:center; margin:24px 0 18px; }
+.letter-card-page { margin:0 0 20px; }
+.letter-card-page img { display:block; width:100%; max-width:330px; height:auto; margin:0 auto 24px; box-shadow:0 6px 24px #82725225; }
+.letter-card-page .button { margin-top:12px; }
+.letter-card-preview .privacy-note { line-height:1.8; }
+.letter-row:focus-visible,.letter-save:focus-visible { outline:2px solid #a58a55; outline-offset:3px; }
+.mail-action .mail-notice { position:absolute; top:-36px; right:4px; display:flex; align-items:center; gap:6px; padding:8px 11px; min-height:32px; border:1px solid #d5bd94; border-radius:16px 16px 4px 16px; background:#fff8e9; color:#783f47; font-size:11px; line-height:1.3; letter-spacing:.5px; box-shadow:0 4px 13px #39322113; animation:mail-arrival .5s ease-out both; }
+.mail-action .mail-notice:after { content:""; position:absolute; bottom:-6px; right:13px; width:10px; height:10px; background:#fff8e9; border-right:1px solid #d5bd94; border-bottom:1px solid #d5bd94; transform:rotate(45deg); }
+.mail-notice .unread-dot { width:6px; height:6px; }
+.is-selecting .mail-notice { visibility:hidden; }
+@keyframes mail-arrival { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:760px) { .mail-action .mail-notice { right:0; top:-32px; padding:7px 9px; font-size:10px; } }
+@media(prefers-reduced-motion:reduce) { .mail-action .mail-notice { animation:none; } }

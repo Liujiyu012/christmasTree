@@ -1,0 +1,93 @@
+.app-shell > .falling-snow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+.app-shell > header, .app-shell > main, .app-shell > footer { position: relative; z-index: 1; }
+.falling-snow > span {
+  position: absolute;
+  left: var(--snow-x);
+  top: -34px;
+  width: var(--snow-size);
+  height: var(--snow-size);
+  color: #fffcf2;
+  opacity: 0;
+  animation: gentle-snowfall var(--snow-duration) var(--snow-delay) linear infinite;
+}
+.paper-snowflake svg { width: 100%; height: 100%; overflow: visible; }
+.snow-cutout { fill: currentColor; stroke: #8ba8ad; stroke-width: .8; stroke-linejoin: round; }
+.snow-cutout .snow-hole { fill: #b1c4c6; stroke: none; }
+.snow-lace { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.snow-outline { stroke: #8ba8ad; stroke-width: 2.8; opacity: .65; }
+.snow-thread { stroke: currentColor; stroke-width: 1.7; }
+@keyframes gentle-snowfall {
+  0% { transform: translate3d(0, 0, 0) rotate(var(--snow-turn)); opacity: 0; }
+  6%, 90% { opacity: var(--snow-opacity); }
+  100% { transform: translate3d(var(--snow-drift), calc(100vh + 70px), 0) rotate(calc(var(--snow-turn) + 110deg)); opacity: 0; }
+}
+.swaying-tree { transform-box: view-box; transform-origin: 300px 510px; }
+.tree-touch-area { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.tree-touch-area[aria-disabled=true] { cursor: default; }
+.tree-touch-area:focus { outline: none; }
+.tree-touch-area:focus-visible { filter: drop-shadow(0 0 3px #c5a363); }
+.scene-svg .placed-gift { animation: none; }
+.ornament-pendulum { transform-box: view-box; transform-origin: 0 0; }
+.ornament-celebrate { animation: ornament-settle 2800ms ease-in-out; }
+.ornament-welcome-glow { opacity: 0; animation: ornament-glimmer 3000ms ease-out; }
+@keyframes ornament-settle {
+  0% { transform: rotate(-11deg); }
+  18% { transform: rotate(9deg); }
+  39% { transform: rotate(-6deg); }
+  61% { transform: rotate(3.5deg); }
+  80% { transform: rotate(-1.5deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes ornament-glimmer {
+  0% { opacity: 0; }
+  20% { opacity: .8; }
+  60% { opacity: .4; }
+  100% { opacity: 0; }
+}
+.music-box { display: flex; flex-direction: column; align-items: center; margin: 17px auto 4px; }
+.music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 7px 15px;
+  border: 1px solid #d9cfb8;
+  border-radius: 24px;
+  background: #f4eedf99;
+  color: #8d7953;
+  font-size: 10px;
+  letter-spacing: .8px;
+}
+.music-toggle:hover { background: #eee5d2; }
+.music-toggle[aria-pressed=true] { color: #49634b; border-color: #b9c2a8; background: #eaf0e133; }
+.music-bars { display: flex; align-items: center; gap: 2px; height: 13px; margin-left: 3px; }
+.music-bars i { width: 2px; height: 4px; border-radius: 2px; background: currentColor; }
+.music-bars i:nth-child(2) { height: 9px; }
+.music-bars.is-playing i { animation: quiet-music 1.5s ease-in-out infinite alternate; }
+.music-bars.is-playing i:nth-child(2) { animation-delay: -.6s; }
+.music-bars.is-playing i:nth-child(3) { animation-delay: -1.2s; }
+.music-error { margin-top: 7px; color: #8c4147; font-size: 11px; }
+.site-footer { flex-wrap: wrap; }
+.music-credit { flex-basis: 100%; margin: 14px 0 0; text-align: center; font-size: 9px; line-height: 1.8; letter-spacing: .2px; }
+.music-credit a { text-decoration: underline; text-decoration-color: #c8bdab; text-underline-offset: 3px; }
+.music-credit a:hover { color: #49634b; }
+@keyframes quiet-music { to { height: 12px; } }
+@media (max-width: 760px) {
+  .falling-snow > span:nth-child(n+37) { display: none; }
+  .falling-snow > span { width: calc(var(--snow-size) * .86); height: calc(var(--snow-size) * .86); }
+  .music-box { margin-top: 12px; margin-bottom: 0; }
+  .music-toggle { min-height: 44px; }
+  .music-credit { flex-basis: auto; margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .falling-snow { display: none; }
+  .ornament-celebrate, .ornament-welcome-glow, .music-bars.is-playing i { animation: none !important; }
+}

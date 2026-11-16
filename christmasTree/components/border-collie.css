@@ -1,0 +1,59 @@
+/* All motion stays in the empty ground between the gift box and the mailbox. */
+.border-collie, .border-collie * { pointer-events: none; }
+.border-collie g { transform-box: view-box; }
+.collie-pose { animation: collie-arrive .55s ease-out both; }
+.collie-breath { transform-origin: 74px 104px; animation: collie-breathe 3.8s ease-in-out infinite; }
+.collie-ear { transform-origin: 0 -12px; animation: collie-ear-twitch 8s ease-in-out infinite; }
+.collie-eyes { transform-origin: 0 -8px; animation: collie-blink 5.4s linear infinite; }
+.collie-tongue { transform-origin: 0 15px; animation: collie-pant 2.4s ease-in-out infinite; }
+.collie-sit-head { transform-origin: 0 8px; animation: collie-look 9s ease-in-out infinite; }
+.collie-sit-tail { transform-origin: 99px 93px; animation: collie-tail-wag 1.8s ease-in-out infinite; }
+.collie-roam { animation: collie-stroll 24s linear infinite; }
+.collie-direction { transform-origin: 75px 0; animation: collie-turn 24s steps(1, end) infinite; }
+.collie-leg { --stride: 9deg; animation: collie-step 24s ease-in-out infinite; }
+.collie-leg-front-a { transform-origin: 40px 76px; }
+.collie-leg-front-b { transform-origin: 97px 77px; --stride: -9deg; }
+.collie-leg-back-a { transform-origin: 52px 76px; --stride: -9deg; }
+.collie-leg-back-b { transform-origin: 92px 76px; }
+.collie-sniff-head { transform-origin: 101px 53px; animation: collie-sniff 24s ease-in-out infinite; }
+.collie-walk-tail { transform-origin: 35px 57px; animation: collie-walk-tail 2s ease-in-out infinite; }
+.border-collie.collie-paused g { animation-play-state: paused; }
+@keyframes collie-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes collie-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.015, 1.055); } }
+@keyframes collie-ear-twitch { 0%, 58%, 66%, 100% { transform: rotate(0deg); } 60%, 64% { transform: rotate(-5deg); } 62% { transform: rotate(2deg); } }
+@keyframes collie-blink { 0%, 43%, 47%, 78%, 82%, 100% { transform: scaleY(1); } 45%, 80% { transform: scaleY(.08); } }
+@keyframes collie-pant { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.15); } }
+@keyframes collie-look { 0%, 20%, 65%, 100% { transform: rotate(0deg); } 30%, 48% { transform: rotate(-5deg); } 78%, 88% { transform: rotate(4deg); } }
+@keyframes collie-tail-wag { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(9deg); } }
+@keyframes collie-walk-tail { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(6deg); } }
+@keyframes collie-stroll { 0%, 10%, 89%, 100% { transform: translateX(0); } 38%, 56% { transform: translateX(-100px); } }
+@keyframes collie-turn { 0% { transform: scaleX(-1); } 52% { transform: scaleX(1); } }
+/* One gait timeline keeps all four paws still during each sniffing pause. */
+@keyframes collie-step {
+  0%, 10%, 38%, 56%, 89%, 100% { transform: rotate(0deg); }
+  12%, 16%, 20%, 24%, 28%, 32%, 36%, 58%, 62%, 66%, 70%, 74%, 78%, 82%, 86% { transform: rotate(var(--stride)); }
+  14%, 18%, 22%, 26%, 30%, 34%, 60%, 64%, 68%, 72%, 76%, 80%, 84%, 88% { transform: rotate(calc(var(--stride) * -1)); }
+}
+@keyframes collie-sniff {
+  0%, 5%, 38%, 43%, 48%, 89%, 94%, 100% { transform: rotate(48deg) translateY(19px); }
+  2.5%, 40.5%, 45.5%, 91.5%, 97% { transform: rotate(44deg) translateY(17px); }
+  10%, 34%, 56%, 85% { transform: rotate(0deg) translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .border-collie g { animation: none !important; }
+}
+
+.border-collie { outline: none; -webkit-tap-highlight-color: transparent; }
+.border-collie .collie-hit-area { pointer-events: all; cursor: pointer; }
+.border-collie:focus-visible .collie-hit-area { stroke: #bba268; stroke-width: 1.8; stroke-dasharray: 3 4; }
+.border-collie.collie-paused .collie-hit-area, .border-collie.is-greeting > .collie-pose .collie-hit-area { pointer-events: none; }
+.border-collie.is-greeting > .collie-pose g { animation-play-state: paused; }
+.collie-greeting .collie-sit-head { animation: collie-hello-head 1.3s ease-in-out both; }
+.collie-greeting .collie-sit-tail { animation-duration: .4s; }
+.collie-hello-body { animation: collie-hello-bounce 1.3s ease-in-out both; }
+.collie-bark-mouth { transform-origin: 0 17px; animation: collie-two-woofs 1.3s ease-in-out both; }
+.collie-woof { animation: collie-woof-label 1.5s ease both; }
+@keyframes collie-hello-bounce { 0%, 31%, 76%, 100% { transform: translateY(0); } 18%, 63% { transform: translateY(-3px); } }
+@keyframes collie-hello-head { 0%, 100% { transform: rotate(0deg); } 18%, 63% { transform: rotate(-5deg); } 31%, 76% { transform: rotate(3deg); } }
+@keyframes collie-two-woofs { 0%, 8%, 31%, 53%, 73%, 100% { transform: scaleY(.5); } 13%, 23%, 60%, 66% { transform: scaleY(1.25); } }
+@keyframes collie-woof-label { 0%, 100% { opacity: 0; } 10%, 84% { opacity: 1; } }

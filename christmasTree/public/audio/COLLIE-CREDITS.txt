@@ -1,0 +1,12 @@
+Collie greeting sound: "Happy puppy barks", user-selected audition 01.
+Source: Mixkit, sound effect 741.
+https://mixkit.co/free-sound-effects/dog/
+Original preview: https://assets.mixkit.co/active_storage/sfx/741/741-preview.mp3
+License: Mixkit Sound Effects Free License.
+https://mixkit.co/license/modal/sfxFree/
+Licensed for incorporation into this website; not for standalone stock redistribution.
+Downloaded and edited 2026-11-15.
+Modifications: two excerpts (0.70–1.10s and 2.77–3.01s), mono 44.1kHz PCM WAV,
+6ms/18ms edge fades, gentle matched volume, no pitch shift; 1.14 seconds total.
+The deployed audio is identical to the selected audition file.
+SHA-256: 3b1d66ea6f550c591682056aa44cf43328eebb70b79466d018272cac904d4737
